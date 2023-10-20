@@ -1,6 +1,7 @@
 .venv
 .pdm-python
 .pdm-build
+dist
 
 __pycache__
 .pytest_cache
