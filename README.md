@@ -22,3 +22,8 @@ except IterationTimeoutError as e:
 except IteratorTimeoutError as e:
     print(f"only reached step {e.step} before timing out")
 ```
+
+## License
+
+MIT License
+Copyright (c) 2023 Elias Gabriel
