@@ -6,9 +6,9 @@ import pytest
 from aiter_timeouts import IterationTimeoutError, IteratorTimeoutError, timeout
 
 
-async def async_gen():
-    for i in range(10):
-        await asyncio.sleep(0.5)
+async def async_iter(count):
+    for i in range(count):
+        await asyncio.sleep(1)
         yield i
 
 
@@ -27,16 +27,7 @@ async def test_async_iter(count, total, step, error):
         res = [
             v
             async for v in timeout(
-                async_gen(count), timeout=total, timeout_per_step=step
+                async_iter(count), timeout=total, timeout_per_step=step
             )
         ]
         assert res == list(range(count))
-
-
-try:
-    async for val in timeout(async_gen(), timeout=6, timeout_per_step=1):
-        ...
-except IterationTimeoutError as e:
-    print(f"step {e.step} took too long")
-except IteratorTimeoutError as e:
-    print(f"only reached step {e.step} before timing out")
