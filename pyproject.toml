@@ -1,6 +1,6 @@
 [project]
 name = "aiter-timeouts"
-version = "0.1.0"
+version = "1.0.0"
 description = "Timeout functionality for asynchronous iterators"
 authors = [
     {name = "Elias Gabriel", email = "me@eliasfgabriel.com"},
