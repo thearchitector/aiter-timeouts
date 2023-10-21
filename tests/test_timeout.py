@@ -3,7 +3,7 @@ from contextlib import nullcontext
 
 import pytest
 
-from aiter_timeouts import IterationTimeoutError, IteratorTimeoutError, timeout
+from aiter_timeouts import IterationTimeoutError, IteratorTimeoutError, with_timeout
 
 
 async def async_iter(count):
@@ -26,7 +26,7 @@ async def test_async_iter(count, total, step, error):
     with context:
         res = [
             v
-            async for v in timeout(
+            async for v in with_timeout(
                 async_iter(count), timeout=total, timeout_per_step=step
             )
         ]

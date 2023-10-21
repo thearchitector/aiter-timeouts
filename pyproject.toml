@@ -19,6 +19,7 @@ repository = "https://github.com/thearchitector/aiter-timeouts"
 dev = [
     "pytest>=7.4.2",
     "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
 ]
 
 [tool.pytest.ini_options]
@@ -27,6 +28,9 @@ testpaths = [ "tests" ]
 
 [tool.mypy]
 strict = true
+
+[tool.pyright]
+ignore = [ "tests" ]
 
 [build-system]
 requires = ["pdm-backend"]

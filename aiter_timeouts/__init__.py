@@ -3,7 +3,7 @@ from __future__ import annotations
 import asyncio
 import typing
 
-if typing.TYPE_CHECKING:
+if typing.TYPE_CHECKING:  # pragma: no cover
     from asyncio import AbstractEventLoop
     from typing import AsyncIterator, Optional, TypeVar
 
@@ -22,7 +22,7 @@ class IteratorTimeoutError(IterationTimeoutError):
     """Raised when an async iterator takes too long to yield all its values."""
 
 
-async def timeout(
+async def with_timeout(
     asynciter: AsyncIterator[YT],
     timeout: Optional[float] = None,
     timeout_per_step: Optional[float] = None,
@@ -46,3 +46,8 @@ async def timeout(
             raise IterationTimeoutError(step) from e
         except StopAsyncIteration:
             break
+
+
+timeout = with_timeout
+
+__all__ = ["timeout", "with_timeout", "IterationTimeoutError", "IteratorTimeoutError"]
