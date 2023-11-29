@@ -1,4 +1,5 @@
 import asyncio
+import pickle
 from contextlib import nullcontext
 
 import pytest
@@ -31,3 +32,9 @@ async def test_async_iter(count, total, step, error):
             )
         ]
         assert res == list(range(count))
+
+
+@pytest.mark.parametrize("exception", (IterationTimeoutError, IteratorTimeoutError))
+def test_picklablity(exception):
+    exce = exception(0)
+    assert pickle.loads(pickle.dumps(exce)).step == exce.step

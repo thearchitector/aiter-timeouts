@@ -14,8 +14,8 @@ class IterationTimeoutError(asyncio.TimeoutError):
     """Raised when an individual iteration of an async iterator takes too long."""
 
     def __init__(self, step: int):
+        super().__init__(step)
         self.step = step
-        super().__init__()
 
 
 class IteratorTimeoutError(IterationTimeoutError):
