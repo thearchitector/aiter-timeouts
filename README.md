@@ -5,6 +5,8 @@
 
 Timeout functionality for asynchronous iterators. Supports timeouts on the total time to exhaust an asynchronous iterator, or the time it takes for any given step.
 
+Supports Python 3.7+.
+
 ## Example
 
 Just wrap your async iterator in a call to `with_timeout`, like so:
