@@ -1,6 +1,6 @@
 [project]
 name = "aiter-timeouts"
-version = "1.0.0"
+version = "1.1.0"
 description = "Timeout functionality for asynchronous iterators"
 authors = [
     {name = "Elias Gabriel", email = "me@eliasfgabriel.com"},
@@ -14,6 +14,7 @@ dependencies = []
 [project.urls]
 documentation = "https://github.com/thearchitector/aiter-timeouts"
 repository = "https://github.com/thearchitector/aiter-timeouts"
+changelog = "https://github.com/thearchitector/aiter-timeouts/blob/main/CHANGELOG.md"
 
 [tool.pdm.dev-dependencies]
 dev = [
